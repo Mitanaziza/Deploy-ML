@@ -1,0 +1,5 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', '_us-east1-docker.pkg.dev/deploy-model1/_fast-api/_fast-api:latest', '.' ]
+images:
+- '__us-east1-docker.pkg.dev/deploy-model1/_fast-api/_fast-api:latest'
