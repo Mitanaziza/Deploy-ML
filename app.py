@@ -32,15 +32,6 @@ def read_root():
 # Port diambil dari variabel lingkungan `PORT`
 PORT = int(os.environ.get("PORT", 8000))
 
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=PORT)
-
-@app.post("/predict")
-def predict(data: dict):
-    return {"prediction": "This is where prediction results go"}
-
-
 # Endpoint utama untuk menghitung BMI dan memprediksi status kesehatan
 @app.post("/predict")
 async def predict(data: InputData):
@@ -67,3 +58,7 @@ async def predict(data: InputData):
         "bmi": round(bmi, 2),
         "health_status": status
     }
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=PORT)
